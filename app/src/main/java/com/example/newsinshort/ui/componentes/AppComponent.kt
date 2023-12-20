@@ -68,25 +68,30 @@ fun NewsRowComponent(article: Articles?) {
         modifier = Modifier
             .fillMaxSize()
             .padding(8.dp)
-            .background(color = Color.White)
+            .background(Color.White)
     ) {
 
         AsyncImage(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(240.dp),
-            contentScale = ContentScale.FillWidth,
             model = article?.urlToImage,
             contentDescription = "",
+            contentScale = ContentScale.Fit,
             placeholder = painterResource(id = R.drawable.ic_placeholder_imae),
             error = painterResource(id = R.drawable.ic_placeholder_imae)
         )
 
         Spacer(modifier = Modifier.size(20.dp))
+
         HadingTextComponent(article?.title ?: "")
+
         Spacer(modifier = Modifier.size(20.dp))
+
         NormalTextComponent(article?.description ?: "")
+
         Spacer(modifier = Modifier.weight(1f))
+
         AuthorDetailsComponent(article?.author, article?.source?.name)
     }
 }

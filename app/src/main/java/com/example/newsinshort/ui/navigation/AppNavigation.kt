@@ -4,7 +4,9 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.newsinshort.ui.screens.HomeScreen
+import com.example.newsinshort.ui.screens.homepager.HomeScreen
+import com.example.newsinshort.ui.screens.homepager.homeRoute
+import com.example.newsinshort.ui.screens.webview.webViewRoute
 
 @Composable
 fun AppNavigationGraph(){
@@ -15,9 +17,10 @@ fun AppNavigationGraph(){
         navController = navController,
         startDestination = Routes.HOME_SCREEN
     ){
-        composable(Routes.HOME_SCREEN){
-            HomeScreen()
-        }
-    }
 
+        homeRoute(navController)
+
+        webViewRoute(navController)
+
+    }
 }
