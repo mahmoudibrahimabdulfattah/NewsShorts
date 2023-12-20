@@ -95,6 +95,9 @@ dependencies {
 
     //Coil
     implementation(Dependencies.coil)
+
+    //Splash Screen
+    implementation(Dependencies.splashScreen)
 }
 
 kapt{

@@ -38,6 +38,9 @@ object Dependencies {
 
     //Coil
     val coil by lazy { "io.coil-kt:coil-compose:${Versions.coil}" }
+
+    //Splash Screen
+    val splashScreen by lazy { "androidx.core:core-splashscreen:${Versions.splashScreen}" }
 }
 
 object Modules{
