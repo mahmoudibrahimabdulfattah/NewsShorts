@@ -19,6 +19,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.newsinshort.ui.componentes.Loader
 import com.example.newsinshort.ui.componentes.NewsRowComponent
 import com.example.newsinshort.ui.screens.webview.navigateToWebView
@@ -32,7 +33,8 @@ fun HomeScreen(
     viewModel: NewsViewModel = hiltViewModel()
 ) {
     val newsResponse by viewModel.news.collectAsState()
-    val state = newsResponse
+
+    val newsResult = newsResponse
 
     var mUrl by rememberSaveable {
         mutableStateOf("")
@@ -40,19 +42,19 @@ fun HomeScreen(
 
     var index = 0
 
-    when (state) {
+    when (newsResult) {
         is ResourceState.Loading -> {
             Loader()
         }
 
         is ResourceState.Success -> {
-            val result = state.data
+            val newsData = newsResult.data
 
             val pagerState = rememberPagerState(
                 initialPage = 0,
                 initialPageOffsetFraction = 0f
             ) {
-                result.articles.size
+                newsData.articles.size
             }
 
             Surface(
@@ -61,26 +63,28 @@ fun HomeScreen(
             ) {
                 VerticalPager(
                     state = pagerState,
-                    modifier = Modifier.fillMaxSize().clickable (
-                        onClick = {
-                            if (mUrl.isEmpty()) {
-                                navController.navigateToWebView("https://www.google.com/")
-                            } else {
-                                navController.navigateToWebView(Uri.encode(mUrl))
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .clickable(
+                            onClick = {
+                                if (mUrl.isEmpty()) {
+                                    navController.navigateToWebView("https://www.google.com/")
+                                } else {
+                                    navController.navigateToWebView(Uri.encode(mUrl))
+                                }
                             }
-                        }
-                    ),
+                        ),
                     pageSize = PageSize.Fill,
                     pageSpacing = 8.dp
                 ) { page ->
-                    if (result.articles.isNotEmpty() && page in result.articles.indices) {
-                        NewsRowComponent(result.articles[page])
+                    if (newsData.articles.isNotEmpty() && page in newsData.articles.indices) {
+                        NewsRowComponent(newsData.articles[page])
                         if (page == 0){
                             index = 0
                         } else {
                             index = page-1
                         }
-                        mUrl = result.articles[index].url.toString()
+                        mUrl = newsData.articles[index].url.toString()
                     }
                 }
             }
@@ -94,9 +98,9 @@ fun HomeScreen(
 }
 
 
-
 @Preview(showBackground = true)
 @Composable
 fun HomePreview() {
-    //HomeScreen()
+    //val navController = rememberNavController()
+    //HomeScreen(navController)
 }

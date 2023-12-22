@@ -26,6 +26,8 @@ import coil.compose.AsyncImage
 import com.example.newsinshort.R
 import com.example.newsinshort.data.entity.Articles
 import com.example.newsinshort.ui.theme.NewsInShortTheme
+import com.example.newsinshort.ui.theme.OnPrimaryColor
+import com.example.newsinshort.ui.theme.PrimaryColor
 
 @Composable
 fun Loader() {
@@ -38,14 +40,13 @@ fun Loader() {
     }
 }
 
-
 @Composable
 fun NormalTextComponent(value: String) {
     Text(
         text = value,
         fontSize = 18.sp,
         modifier = Modifier.padding(8.dp),
-        color = MaterialTheme.colorScheme.secondary,
+        color = PrimaryColor,
         fontWeight = FontWeight.Normal
 
     )
@@ -54,7 +55,8 @@ fun NormalTextComponent(value: String) {
 @Composable
 fun HadingTextComponent(value: String) {
     Text(
-        text = value, fontSize = 20.sp, color = MaterialTheme.colorScheme.primary,
+        text = value, fontSize = 20.sp,
+        color = OnPrimaryColor,
         modifier = Modifier.padding(8.dp),
         fontWeight = FontWeight.Bold
     )
