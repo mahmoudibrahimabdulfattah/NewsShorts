@@ -31,8 +31,8 @@ fun HomeScreen(
     navController: NavController,
     viewModel: NewsViewModel = hiltViewModel()
 ) {
-
     val newsResponse by viewModel.news.collectAsState()
+    val state = newsResponse
 
     var mUrl by rememberSaveable {
         mutableStateOf("")
@@ -40,45 +40,40 @@ fun HomeScreen(
 
     var index = 0
 
+    when (state) {
+        is ResourceState.Loading -> {
+            Loader()
+        }
 
-    val pagerState = rememberPagerState(
-        initialPage = 0,
-        initialPageOffsetFraction = 0f
-    ) {
-        100
-    }
+        is ResourceState.Success -> {
+            val result = state.data
 
-    Surface(
-        modifier = Modifier
-            .fillMaxSize()
+            val pagerState = rememberPagerState(
+                initialPage = 0,
+                initialPageOffsetFraction = 0f
+            ) {
+                result.articles.size
+            }
 
-    ) {
-        VerticalPager(
-            state = pagerState,
-            modifier = Modifier.fillMaxSize().clickable (
-                onClick = {
-                    if (mUrl.isEmpty()){
-                        navController.navigateToWebView("https://www.google.com/")
-                    } else {
-                        navController.navigateToWebView(Uri.encode(mUrl))
-                    }
-                }
-            ),
-            pageSize = PageSize.Fill,
-            pageSpacing = 8.dp
-
-        ) {page->
-
-            when (newsResponse) {
-
-                is ResourceState.Loading -> {
-                    Loader()
-                }
-
-                is ResourceState.Success -> {
-                    val result = (newsResponse as ResourceState.Success).data
-
-                    if (result.articles.isNotEmpty()){
+            Surface(
+                modifier = Modifier
+                    .fillMaxSize()
+            ) {
+                VerticalPager(
+                    state = pagerState,
+                    modifier = Modifier.fillMaxSize().clickable (
+                        onClick = {
+                            if (mUrl.isEmpty()) {
+                                navController.navigateToWebView("https://www.google.com/")
+                            } else {
+                                navController.navigateToWebView(Uri.encode(mUrl))
+                            }
+                        }
+                    ),
+                    pageSize = PageSize.Fill,
+                    pageSpacing = 8.dp
+                ) { page ->
+                    if (result.articles.isNotEmpty() && page in result.articles.indices) {
                         NewsRowComponent(result.articles[page])
                         if (page == 0){
                             index = 0
@@ -87,17 +82,17 @@ fun HomeScreen(
                         }
                         mUrl = result.articles[index].url.toString()
                     }
-
-                }
-
-                is ResourceState.Error -> {
-
                 }
             }
         }
 
+        is ResourceState.Error -> {
+            // Handle error state
+        }
+
     }
 }
+
 
 
 @Preview(showBackground = true)

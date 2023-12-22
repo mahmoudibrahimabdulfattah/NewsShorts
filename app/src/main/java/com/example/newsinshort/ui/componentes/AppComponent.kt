@@ -47,6 +47,7 @@ fun NormalTextComponent(value: String) {
         modifier = Modifier.padding(8.dp),
         color = MaterialTheme.colorScheme.secondary,
         fontWeight = FontWeight.Normal
+
     )
 }
 
