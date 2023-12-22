@@ -123,7 +123,7 @@ fun AuthorDetailsComponent(authorName: String?, authorSource: String?) {
 
 
 @Composable
-fun isError() {
+fun IsError() {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
