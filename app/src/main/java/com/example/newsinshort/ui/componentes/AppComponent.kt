@@ -1,5 +1,6 @@
 package com.example.newsinshort.ui.componentes
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -120,6 +121,21 @@ fun AuthorDetailsComponent(authorName: String?, authorSource: String?) {
 
 }
 
+
+@Composable
+fun isError() {
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Image(
+            painter = painterResource(id = R.drawable.ic_no_internet),
+            contentDescription = "Check Your Internet!"
+        )
+        Text(text = "Check Your Internet!")
+    }
+}
 
 @Preview(showBackground = true)
 @Composable

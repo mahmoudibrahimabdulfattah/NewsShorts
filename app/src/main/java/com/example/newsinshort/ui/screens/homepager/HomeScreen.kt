@@ -22,6 +22,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.newsinshort.ui.componentes.Loader
 import com.example.newsinshort.ui.componentes.NewsRowComponent
+import com.example.newsinshort.ui.componentes.isError
 import com.example.newsinshort.ui.screens.webview.navigateToWebView
 import com.example.newsinshort.ui.viewmodel.NewsViewModel
 import com.example.utilities.ResourceState
@@ -92,6 +93,7 @@ fun HomeScreen(
 
         is ResourceState.Error -> {
             // Handle error state
+            isError()
         }
 
     }
