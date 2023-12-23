@@ -141,6 +141,6 @@ fun IsError() {
 @Composable
 fun DesignPreview() {
     NewsInShortTheme {
-
+        IsError()
     }
 }

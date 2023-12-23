@@ -23,12 +23,22 @@ class NewsViewModel @Inject constructor(
     val news: StateFlow<ResourceState<NewsResponse>> = _news
 
     init {
-        getNews(AppConstants.COUNTRY)
+        //getNews(AppConstants.COUNTRY)
+        getAllNews(AppConstants.q)
     }
 
     fun getNews(country: String){
         viewModelScope.launch(Dispatchers.IO) {
             newsRepository.getNewsHeadline(country)
+                .collectLatest {
+                    _news.value = it
+                }
+        }
+    }
+
+    fun getAllNews(q: String){
+        viewModelScope.launch(Dispatchers.IO) {
+            newsRepository.getAllNews(q)
                 .collectLatest {
                     _news.value = it
                 }

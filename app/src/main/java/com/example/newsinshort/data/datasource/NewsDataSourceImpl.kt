@@ -12,4 +12,8 @@ class NewsDataSourceImpl @Inject constructor(
     override suspend fun getNewsHeadline(country: String): Response<NewsResponse> {
         return apiService.getNewsHeadline(country)
     }
+
+    override suspend fun getAllNews(q: String): Response<NewsResponse> {
+        return apiService.getAllNews(q)
+    }
 }

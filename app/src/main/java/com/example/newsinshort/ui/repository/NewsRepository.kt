@@ -29,4 +29,21 @@ class NewsRepository @Inject constructor(
             emit(ResourceState.Error(e.localizedMessage ?: "Error flow"))
         }
     }
+
+    suspend fun getAllNews(q: String): Flow<ResourceState<NewsResponse>>{
+        return flow {
+            emit(ResourceState.Loading())
+
+            val response = newsDataSource.getAllNews(q)
+
+            if(response.isSuccessful && response.body() != null){
+                emit(ResourceState.Success(response.body()!!))
+            } else {
+                emit(ResourceState.Error(response.errorBody()?.string().toString()))
+            }
+
+        }.catch { e ->
+            emit(ResourceState.Error(e.localizedMessage ?: "Error flow"))
+        }
+    }
 }
