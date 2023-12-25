@@ -24,7 +24,7 @@ class NewsViewModel @Inject constructor(
 
     init {
         //getNews(AppConstants.COUNTRY)
-        getAllNews(AppConstants.q)
+        getAllNews(AppConstants.q, AppConstants.language)
     }
 
     fun getNews(country: String){
@@ -36,9 +36,9 @@ class NewsViewModel @Inject constructor(
         }
     }
 
-    fun getAllNews(q: String){
+    fun getAllNews(q: String, language: String){
         viewModelScope.launch(Dispatchers.IO) {
-            newsRepository.getAllNews(q)
+            newsRepository.getAllNews(q, language)
                 .collectLatest {
                     _news.value = it
                 }

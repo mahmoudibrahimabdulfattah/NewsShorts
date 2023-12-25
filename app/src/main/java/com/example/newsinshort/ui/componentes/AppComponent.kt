@@ -48,8 +48,8 @@ fun NormalTextComponent(value: String) {
         fontSize = 18.sp,
         modifier = Modifier.padding(8.dp),
         color = PrimaryColor,
-        fontWeight = FontWeight.Normal
-
+        fontWeight = FontWeight.Normal,
+        maxLines = 4
     )
 }
 
@@ -59,7 +59,8 @@ fun HadingTextComponent(value: String) {
         text = value, fontSize = 20.sp,
         color = OnPrimaryColor,
         modifier = Modifier.padding(8.dp),
-        fontWeight = FontWeight.Bold
+        fontWeight = FontWeight.Bold,
+        maxLines = 2
     )
 }
 
@@ -133,7 +134,10 @@ fun IsError() {
             painter = painterResource(id = R.drawable.ic_no_internet),
             contentDescription = "Check Your Internet!"
         )
-        Text(text = "Check Your Internet!")
+        Text(
+            text = "Check Your Internet!",
+            color = OnPrimaryColor
+        )
     }
 }
 

@@ -3,6 +3,8 @@ package com.example.newsinshort.data
 object AppConstants {
 
     const val APP_BASE_URL = "https://newsapi.org/"
-    const val COUNTRY = "eg"
-    const val q = "all"
+    const val COUNTRY = "us"
+    const val q = "*"
+    const val language = "ar"
+
 }

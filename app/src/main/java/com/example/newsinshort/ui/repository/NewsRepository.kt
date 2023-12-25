@@ -30,11 +30,11 @@ class NewsRepository @Inject constructor(
         }
     }
 
-    suspend fun getAllNews(q: String): Flow<ResourceState<NewsResponse>>{
+    suspend fun getAllNews(q: String, language: String): Flow<ResourceState<NewsResponse>>{
         return flow {
             emit(ResourceState.Loading())
 
-            val response = newsDataSource.getAllNews(q)
+            val response = newsDataSource.getAllNews(q, language)
 
             if(response.isSuccessful && response.body() != null){
                 emit(ResourceState.Success(response.body()!!))
