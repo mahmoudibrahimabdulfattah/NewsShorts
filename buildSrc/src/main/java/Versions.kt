@@ -10,6 +10,7 @@ object Versions {
     const val testJunit = "1.1.5"
     const val testEspresso = "3.5.1"
     const val material = "1.10.0"
+    const val material3WindowSize = "1.1.2"
     const val hiltVersion = "2.48.1"
     const val hiltNavigationVersion = "1.1.0"
     const val navigationCompose = "2.7.5"

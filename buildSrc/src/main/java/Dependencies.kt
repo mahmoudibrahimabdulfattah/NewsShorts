@@ -10,6 +10,7 @@ object Dependencies {
     val material by lazy { "com.google.android.material:material:${Versions.material}" }
     val composeMaterial by lazy { "androidx.compose.material:material:${Versions.composeMaterial}" }
     val composeMaterial3 by lazy { "androidx.compose.material3:material3" }
+    val material3WindowSize by lazy { "androidx.compose.material3:material3-window-size-class:${Versions.material3WindowSize}" }
     val junit by lazy { "junit:junit:${Versions.junit}" }
     val testJunit by lazy { "androidx.test.ext:junit:${Versions.testJunit}" }
     val testEspresso by lazy { "androidx.test.espresso:espresso-core:${Versions.testEspresso}" }

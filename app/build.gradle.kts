@@ -58,6 +58,7 @@ dependencies {
     implementation(platform(Dependencies.composeBom))
     implementation(Dependencies.composeUi)
     implementation(Dependencies.composeMaterial)
+    implementation(Dependencies.material3WindowSize)
     implementation(Dependencies.composeUiGraphics)
     implementation(Dependencies.composeUiToolingPreview)
     implementation(Dependencies.composeMaterial3)
