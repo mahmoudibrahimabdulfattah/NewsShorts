@@ -3,6 +3,7 @@ package com.example.newsshorts.ui.screens.homepager
 import android.net.Uri
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -11,10 +12,13 @@ import androidx.compose.foundation.pager.VerticalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
+import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Button
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -28,6 +32,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
@@ -76,6 +81,9 @@ fun HomeScreen(
                 newsData.articles.size
             }
 
+            var expanded by remember { mutableStateOf(false) }
+            val items = listOf("ar", "en", "fr", "de", "es", "he", "it", "nl", "pt", "ru", "sv", "ud", "zh")
+
             Scaffold(
                 topBar = {
                     TopAppBar(
@@ -85,8 +93,21 @@ fun HomeScreen(
                             )
                         },
                         actions = {
+                            Box(modifier = Modifier.padding(end = 16.dp)) {
+                                IconButton(onClick = { expanded = true }) {
+                                    Icon(Icons.Default.ArrowDropDown, contentDescription = "Dropdown")
+                                }
+                                DropdownMenu(
+                                    expanded = expanded,
+                                    onDismissRequest = { expanded = false }
+                                ) {
+                                    items.forEach { item ->
+                                        Text(text = item)
+                                    }
+                                }
+                            }
                             IconButton(onClick = { /* Handle settings action */ }) {
-                                Icon(Icons.Default.AccountCircle, contentDescription = null, tint = PrimaryColor)
+                                Icon(Icons.Default.Search, contentDescription = null, tint = PrimaryColor)
                             }
                         },
                         colors = TopAppBarDefaults.smallTopAppBarColors(
