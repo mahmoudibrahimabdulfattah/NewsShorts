@@ -7,6 +7,7 @@ News Shorts is a cutting-edge Android app built with Kotlin and Jetpack Compose,
 
 - [Overview](#overview)
 - [Key Features](#key-features)
+- [Tech Stack](#tech-stack)
 - [Getting Started](#getting-started)
 - [Installation](#installation)
 - [Acknowledgements](#acknowledgements)
@@ -30,6 +31,19 @@ News Shorts is a cutting-edge Android app built with Kotlin and Jetpack Compose,
 - **State Management:** Ensure a smooth user experience with effective state management mechanisms in place.
 - **Custom Composables:** Enhance the visual appeal and functionality of the app with custom Composable elements.
 - **BuildSrc for Dependency Management:** Streamline dependency management and version control using BuildSrc.
+
+### Tech Stack
+
+- ✨ **Jetpack Compose for UI**
+- 🌿 UI + DATA + DI Layers
+- 🏗️ MVVM + Modular Architecture
+- 🌪️ Coroutines & Flow
+- 🧩 Dependency Injection with Dagger-HILT
+- 🌐 Retrofit for API Call
+- 🍂 State Management
+- 🍃 Custom Composable creation
+- 🧩 BuildSrc for Management Dependencies and Versions
+
 
 ## Getting Started
 
