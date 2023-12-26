@@ -19,28 +19,31 @@ class NewsViewModel @Inject constructor(
     private val newsRepository: NewsRepository
 ) : ViewModel() {
 
-    private val _news: MutableStateFlow<ResourceState<NewsResponse>> = MutableStateFlow(ResourceState.Loading())
-    val news: StateFlow<ResourceState<NewsResponse>> = _news
+    private val _allNews: MutableStateFlow<ResourceState<NewsResponse>> = MutableStateFlow(ResourceState.Loading())
+    val allNews: StateFlow<ResourceState<NewsResponse>> = _allNews
+
+    private val _topNews: MutableStateFlow<ResourceState<NewsResponse>> = MutableStateFlow(ResourceState.Loading())
+    val topNews: StateFlow<ResourceState<NewsResponse>> = _topNews
 
     init {
-        //getNews(AppConstants.COUNTRY)
+        getTopNews(AppConstants.COUNTRY)
         getAllNews(AppConstants.q, AppConstants.language)
-    }
-
-    fun getNews(country: String){
-        viewModelScope.launch(Dispatchers.IO) {
-            newsRepository.getNewsHeadline(country)
-                .collectLatest {
-                    _news.value = it
-                }
-        }
     }
 
     fun getAllNews(q: String, language: String){
         viewModelScope.launch(Dispatchers.IO) {
             newsRepository.getAllNews(q, language)
                 .collectLatest {
-                    _news.value = it
+                    _allNews.value = it
+                }
+        }
+    }
+
+    fun getTopNews(country: String){
+        viewModelScope.launch(Dispatchers.IO) {
+            newsRepository.getNewsHeadline(country)
+                .collectLatest {
+                    _topNews.value = it
                 }
         }
     }

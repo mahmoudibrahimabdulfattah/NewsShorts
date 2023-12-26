@@ -5,6 +5,7 @@ object Versions {
     const val lifecycleRuntimeKtx = "2.6.2"
     const val activityCompose = "1.8.1"
     const val composeBom = "2023.03.00"
+    const val composeMaterial = "1.4.2"
     const val junit = "4.13.2"
     const val testJunit = "1.1.5"
     const val testEspresso = "3.5.1"

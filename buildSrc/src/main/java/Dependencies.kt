@@ -8,6 +8,7 @@ object Dependencies {
     val composeUiGraphics by lazy { "androidx.compose.ui:ui-graphics" }
     val composeUiToolingPreview by lazy { "androidx.compose.ui:ui-tooling-preview" }
     val material by lazy { "com.google.android.material:material:${Versions.material}" }
+    val composeMaterial by lazy { "androidx.compose.material:material:${Versions.composeMaterial}" }
     val composeMaterial3 by lazy { "androidx.compose.material3:material3" }
     val junit by lazy { "junit:junit:${Versions.junit}" }
     val testJunit by lazy { "androidx.test.ext:junit:${Versions.testJunit}" }
