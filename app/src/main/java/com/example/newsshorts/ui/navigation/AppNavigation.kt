@@ -46,7 +46,7 @@ fun AppNavigationGraph() {
                             contentDescription = "Home",
                         )
                     },
-                    label = { Text("Home") },
+                    label = { Text("All News") },
                     selected = currentRoute == Routes.HOME_SCREEN,
                     onClick = {
                         navController.navigateToHome()
