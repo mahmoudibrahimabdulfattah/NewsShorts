@@ -44,7 +44,11 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.remember
 import androidx.compose.ui.unit.sp
 import com.example.newsshorts.data.AppConstants
+import com.example.newsshorts.data.entity.NewsError
 import com.example.newsshorts.data.entity.languageItems
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.json.Json
+
 
 @OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
 @Composable
@@ -174,7 +178,10 @@ fun HomeScreen(
 
         is ResourceState.Error -> {
             // Handle error state
-            IsError()
+            val errorMessage = newsResult.error.toString()
+            val errorMap = Json.decodeFromString<NewsError>(errorMessage)
+
+            IsError(errorMap.message!!)
         }
 
     }

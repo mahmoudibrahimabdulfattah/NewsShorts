@@ -13,6 +13,7 @@ import androidx.compose.material.DropdownMenuItem
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -35,6 +36,7 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.newsshorts.data.AppConstants
+import com.example.newsshorts.data.entity.NewsError
 import com.example.newsshorts.data.entity.countryItems
 import com.example.newsshorts.data.entity.languageItems
 import com.example.newsshorts.ui.componentes.IsError
@@ -44,6 +46,8 @@ import com.example.newsshorts.ui.screens.webview.navigateToWebView
 import com.example.newsshorts.ui.theme.PrimaryColor
 import com.example.newsshorts.ui.viewmodel.NewsViewModel
 import com.example.utilities.ResourceState
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.json.Json
 
 @OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
 @Composable
@@ -100,7 +104,7 @@ fun TopHeadLinesScreen(
                             IconButton(onClick = {
                                 isContextMenuVisible = true
                             }) {
-                                androidx.compose.material.DropdownMenu(
+                                DropdownMenu(
                                     expanded = isContextMenuVisible,
                                     onDismissRequest = {
                                         isContextMenuVisible = false
@@ -170,7 +174,10 @@ fun TopHeadLinesScreen(
 
         is ResourceState.Error -> {
             // Handle error state
-            IsError()
+            val errorMessage = topHeadLinesResult.error.toString()
+            val errorMap = Json.decodeFromString<NewsError>(errorMessage)
+
+            IsError(errorMap.message!!)
         }
 
     }

@@ -26,6 +26,7 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.example.newsshorts.R
 import com.example.newsshorts.data.entity.Articles
+import com.example.newsshorts.data.entity.NewsError
 import com.example.newsshorts.ui.theme.NewsInShortTheme
 import com.example.newsshorts.ui.theme.OnPrimaryColor
 import com.example.newsshorts.ui.theme.PrimaryColor
@@ -124,9 +125,9 @@ fun AuthorDetailsComponent(authorName: String?, authorSource: String?) {
 
 
 @Composable
-fun IsError() {
+fun IsError(error: String) {
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier.fillMaxSize().padding(16.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -135,8 +136,9 @@ fun IsError() {
             contentDescription = "Check Your Internet!"
         )
         Text(
-            text = "Check Your Internet!",
-            color = OnPrimaryColor
+            text = error,
+            color = OnPrimaryColor,
+            maxLines = 3
         )
     }
 }
@@ -145,6 +147,6 @@ fun IsError() {
 @Composable
 fun DesignPreview() {
     NewsInShortTheme {
-        IsError()
+        //IsError("Error")
     }
 }

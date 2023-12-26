@@ -9,6 +9,7 @@ object Versions {
     const val junit = "4.13.2"
     const val testJunit = "1.1.5"
     const val testEspresso = "3.5.1"
+    const val serialization = "1.5.0"
     const val material = "1.10.0"
     const val material3WindowSize = "1.1.2"
     const val hiltVersion = "2.48.1"

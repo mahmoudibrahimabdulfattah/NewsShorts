@@ -18,6 +18,10 @@ object Dependencies {
     val composeUiTooling by lazy { "androidx.compose.ui:ui-tooling" }
     val composeUiTest by lazy { "androidx.compose.ui:ui-test-manifest" }
 
+    val serializationJson by lazy { "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.serialization}" }
+    val serializationCore by lazy { "org.jetbrains.kotlinx:kotlinx-serialization-core:${Versions.serialization}" }
+
+
     //Hilt
     val hiltAndroid by lazy { "com.google.dagger:hilt-android:${Versions.hiltVersion}" }
     val kaptHilt by lazy { "com.google.dagger:hilt-android-compiler:${Versions.hiltVersion}" }

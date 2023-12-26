@@ -3,6 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     kotlin("kapt")
     id("com.google.dagger.hilt.android")
+    id("org.jetbrains.kotlin.plugin.serialization")
 }
 
 android {
@@ -61,6 +62,8 @@ dependencies {
     implementation(Dependencies.material3WindowSize)
     implementation(Dependencies.composeUiGraphics)
     implementation(Dependencies.composeUiToolingPreview)
+    implementation(Dependencies.serializationJson)
+    implementation(Dependencies.serializationCore)
     implementation(Dependencies.composeMaterial3)
     testImplementation(Dependencies.junit)
     androidTestImplementation(Dependencies.testJunit)
