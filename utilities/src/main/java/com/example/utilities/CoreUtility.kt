@@ -3,6 +3,7 @@ package com.example.utilities
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
+import java.net.InetAddress
 
 object CoreUtility {
 

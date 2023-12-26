@@ -127,7 +127,7 @@ fun AuthorDetailsComponent(authorName: String?, authorSource: String?) {
 @Composable
 fun IsError(error: String) {
     Column(
-        modifier = Modifier.fillMaxSize().padding(16.dp),
+        modifier = Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background).padding(16.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
