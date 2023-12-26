@@ -72,7 +72,7 @@ fun TopHeadLinesScreen(
             Scaffold(
                 topBar = {
                     TopAppBar(
-                        title = { Text(text = "Choose Country: US") },
+                        title = { Text(text = "Country: united states") },
                         actions = {
                             IconButton(onClick = { /* Handle settings action */ }) {
                                 Icon(Icons.Default.AccountCircle, contentDescription = null, tint = PrimaryColor)

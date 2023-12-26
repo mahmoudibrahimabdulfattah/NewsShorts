@@ -79,7 +79,11 @@ fun HomeScreen(
             Scaffold(
                 topBar = {
                     TopAppBar(
-                        title = { Text(text = "Choose Language: ar") },
+                        title = {
+                            Text(
+                                text = "Language: arabic"
+                            )
+                        },
                         actions = {
                             IconButton(onClick = { /* Handle settings action */ }) {
                                 Icon(Icons.Default.AccountCircle, contentDescription = null, tint = PrimaryColor)
