@@ -1,4 +1,4 @@
-# News Shorts  ![News Shorts Logo](app/src/main/res/drawable/logo.png)
+![News Shorts Logo](app/src/main/res/drawable/logo.png)  # News Shorts  
 
 
 
