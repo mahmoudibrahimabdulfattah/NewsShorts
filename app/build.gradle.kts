@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.newsinshort"
+    namespace = "com.example.newsshorts"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.newsinshort"
+        applicationId = "com.example.newsshorts"
         minSdk = 24
         targetSdk = 33
         versionCode = 1
