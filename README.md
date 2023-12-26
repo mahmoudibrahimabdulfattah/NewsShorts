@@ -1,6 +1,6 @@
 ![News Shorts Logo](app/src/main/res/drawable/logo.png)  
 # News Shorts  
-
+News Shorts is a cutting-edge Android app built with Kotlin and Jetpack Compose, offering a unique news consumption experience. Inspired by the scrolling format of TikTok
 
 
 ## Table of Contents
