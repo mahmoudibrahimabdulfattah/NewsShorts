@@ -17,7 +17,7 @@ News Shorts is a cutting-edge Android app built with Kotlin and Jetpack Compose,
 
 News Shorts is a cutting-edge Android app built with Kotlin and Jetpack Compose, offering a unique news consumption experience. Inspired by the scrolling format of TikTok, News Shorts presents news articles in a visually engaging and intuitive manner. The app primarily features two main screens: "All News" and "Top Headline News," each providing distinct ways to explore and consume news content.
 
-
+![Uploading News Shorts Giff.gif…]()
 
 ### Key Features
 
