@@ -4,7 +4,7 @@ import com.example.newsshorts.data.AppConstants
 import com.example.newsshorts.data.api.ApiService
 import com.example.newsshorts.data.datasource.NewsDataSource
 import com.example.newsshorts.data.datasource.NewsDataSourceImpl
-import com.example.newsshorts.ui.repository.NewsRepository
+import com.example.newsshorts.data.repository.NewsRepository
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module

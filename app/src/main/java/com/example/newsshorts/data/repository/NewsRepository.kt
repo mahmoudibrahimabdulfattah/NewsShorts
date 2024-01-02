@@ -1,4 +1,4 @@
-package com.example.newsshorts.ui.repository
+package com.example.newsshorts.data.repository
 
 import com.example.newsshorts.data.datasource.NewsDataSource
 import com.example.newsshorts.data.entity.NewsResponse
