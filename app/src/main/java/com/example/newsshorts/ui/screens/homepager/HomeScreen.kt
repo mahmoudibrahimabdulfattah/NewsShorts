@@ -45,12 +45,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.sp
 import com.example.newsshorts.data.AppConstants
-import com.example.newsshorts.data.entity.NewsError
 import com.example.newsshorts.data.entity.languageItems
-import com.example.newsshorts.ui.screens.topheadlines.navigateToTopHeadLines
 import com.example.utilities.CoreUtility.isInternetConnectes
-import kotlinx.serialization.decodeFromString
-import kotlinx.serialization.json.Json
 
 
 @OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
@@ -189,16 +185,8 @@ fun HomeScreen(
 
             is ResourceState.Error -> {
                 // Handle error state
-                if(isConnected){
-                    val errorMessage = newsResult.error.toString()
-
-                    IsError(errorMessage)
-                } else {
-                    val errorMessage = newsResult.error
-                    val errorMap = Json.decodeFromString<NewsError>(errorMessage.toString())
-
-                    IsError(errorMap.message!!)
-                }
+                val errorMessage = newsResult.error.toString()
+                IsError(errorMessage)
             }
 
         }

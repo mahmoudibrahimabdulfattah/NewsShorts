@@ -25,11 +25,3 @@ data class Source(
     val id: String?,
     val name: String?
 )
-
-
-@Serializable
-data class NewsError(
-    val status: String? = "status",
-    val code: String? = "code",
-    val message: String? = "message",
-)

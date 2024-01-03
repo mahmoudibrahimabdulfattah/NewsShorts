@@ -37,7 +37,6 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.newsshorts.data.AppConstants
-import com.example.newsshorts.data.entity.NewsError
 import com.example.newsshorts.data.entity.countryItems
 import com.example.newsshorts.ui.componentes.IsError
 import com.example.newsshorts.ui.componentes.Loader
@@ -47,8 +46,6 @@ import com.example.newsshorts.ui.theme.PrimaryColor
 import com.example.newsshorts.ui.viewmodel.NewsViewModel
 import com.example.utilities.CoreUtility.isInternetConnectes
 import com.example.utilities.ResourceState
-import kotlinx.serialization.decodeFromString
-import kotlinx.serialization.json.Json
 
 @OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
 @Composable
@@ -181,16 +178,8 @@ fun TopHeadLinesScreen(
 
             is ResourceState.Error -> {
                 // Handle error state
-                if(isConnected){
-                    val errorMessage = topHeadLinesResult.error.toString()
-
-                    IsError(errorMessage)
-                } else {
-                    val errorMessage = topHeadLinesResult.error
-                    val errorMap = Json.decodeFromString<NewsError>(errorMessage.toString())
-
-                    IsError(errorMap.message!!)
-                }
+                val errorMessage = topHeadLinesResult.error.toString()
+                IsError(errorMessage)
             }
 
         }
