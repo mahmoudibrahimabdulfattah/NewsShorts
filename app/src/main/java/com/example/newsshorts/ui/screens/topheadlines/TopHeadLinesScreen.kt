@@ -181,10 +181,16 @@ fun TopHeadLinesScreen(
 
             is ResourceState.Error -> {
                 // Handle error state
-                val errorMessage = topHeadLinesResult.error
-                val errorMap = Json.decodeFromString<NewsError>(errorMessage.toString())
+                if(isConnected){
+                    val errorMessage = topHeadLinesResult.error.toString()
 
-                IsError(errorMap.message!!)
+                    IsError(errorMessage)
+                } else {
+                    val errorMessage = topHeadLinesResult.error
+                    val errorMap = Json.decodeFromString<NewsError>(errorMessage.toString())
+
+                    IsError(errorMap.message!!)
+                }
             }
 
         }

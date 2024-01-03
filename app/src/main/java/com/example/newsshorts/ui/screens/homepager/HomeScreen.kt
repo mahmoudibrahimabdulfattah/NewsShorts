@@ -189,10 +189,16 @@ fun HomeScreen(
 
             is ResourceState.Error -> {
                 // Handle error state
-                val errorMessage = newsResult.error
-                val errorMap = Json.decodeFromString<NewsError>(errorMessage.toString())
+                if(isConnected){
+                    val errorMessage = newsResult.error.toString()
 
-                IsError(errorMap.message!!)
+                    IsError(errorMessage)
+                } else {
+                    val errorMessage = newsResult.error
+                    val errorMap = Json.decodeFromString<NewsError>(errorMessage.toString())
+
+                    IsError(errorMap.message!!)
+                }
             }
 
         }

@@ -1,5 +1,6 @@
 package com.example.newsshorts.data.entity
 
+import android.os.Parcelable
 import kotlinx.serialization.Serializable
 
 data class NewsResponse(

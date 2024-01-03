@@ -26,7 +26,6 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.example.newsshorts.R
 import com.example.newsshorts.data.entity.Articles
-import com.example.newsshorts.data.entity.NewsError
 import com.example.newsshorts.ui.theme.NewsInShortTheme
 import com.example.newsshorts.ui.theme.OnPrimaryColor
 import com.example.newsshorts.ui.theme.PrimaryColor
