@@ -75,6 +75,7 @@ dependencies {
     implementation(Dependencies.serializationJson)
     implementation(Dependencies.serializationCore)
     implementation(Dependencies.composeMaterial3)
+    implementation("androidx.room:room-ktx:2.6.1")
     testImplementation(Dependencies.junit)
     androidTestImplementation(Dependencies.testJunit)
     androidTestImplementation(Dependencies.testEspresso)

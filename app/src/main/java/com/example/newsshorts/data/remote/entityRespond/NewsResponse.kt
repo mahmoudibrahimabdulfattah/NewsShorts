@@ -7,7 +7,7 @@ data class NewsResponse(
 )
 
 data class ArticlesDto(
-    val source: Source?,
+    val source: SourceDto?,
     val author: String?,
     val title: String?,
     val description: String?,
@@ -18,7 +18,7 @@ data class ArticlesDto(
 
 )
 
-data class Source(
+data class SourceDto(
     val id: String?,
     val name: String?
 )

@@ -1,9 +1,7 @@
 package com.example.newsshorts.domain.model
 
-import com.example.newsshorts.data.remote.entityRespond.Source
-
 data class Articles(
-    val source: Source?,
+    val source: Source,
     val author: String?,
     val title: String?,
     val description: String?,

@@ -6,7 +6,6 @@ import com.example.newsshorts.domain.model.Articles
 import com.example.newsshorts.domain.repository.NewsRepository
 import com.example.utilities.ResourceState
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 class NewsRepositoryImpl @Inject constructor(
@@ -17,11 +16,7 @@ class NewsRepositoryImpl @Inject constructor(
         forceFetchFromRemote: Boolean,
         country: String
     ): Flow<ResourceState<List<Articles>>> {
-        return flow {
-            emit(ResourceState.Loading(true))
-
-            
-        }
+        TODO("Not yet implemented")
     }
 
     override suspend fun getAllNews(
