@@ -94,7 +94,7 @@ fun NewsRowComponent(article: ArticlesDto?) {
 
         Spacer(modifier = Modifier.weight(1f))
 
-        AuthorDetailsComponent(article?.author, article?.sourceDto?.name)
+        AuthorDetailsComponent(article?.author, article?.source?.name)
     }
 }
 
