@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -13,9 +15,16 @@ android {
     defaultConfig {
         applicationId = "com.example.newsshorts"
         minSdk = 24
+        //noinspection OldTargetApi
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
+
+        val keystoreFile = project.rootProject.file("local.properties")
+        val properties = Properties()
+        properties.load(keystoreFile.inputStream())
+        val apiKey = properties.getProperty("API_KEY") ?: ""
+        buildConfigField(type = "String", name = "API_KEY", value = apiKey)
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -41,6 +50,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.4.3"
@@ -103,6 +113,11 @@ dependencies {
 
     //Splash Screen
     implementation(Dependencies.splashScreen)
+
+    //Room
+    implementation(Dependencies.roomKtx)
+    kapt(Dependencies.roomComiler)
+    implementation(Dependencies.roomPaging)
 }
 
 kapt{

@@ -1,15 +1,12 @@
-package com.example.newsshorts.data.entity
-
-import android.os.Parcelable
-import kotlinx.serialization.Serializable
+package com.example.newsshorts.data.remote.entityRespond
 
 data class NewsResponse(
     val status: String?,
     val totalResults: Int,
-    val articles: List<Articles>
+    val articles: List<ArticlesDto>
 )
 
-data class Articles(
+data class ArticlesDto(
     val source: Source?,
     val author: String?,
     val title: String?,

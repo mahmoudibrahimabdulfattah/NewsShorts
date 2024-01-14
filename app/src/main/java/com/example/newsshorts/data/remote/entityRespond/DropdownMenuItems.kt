@@ -1,4 +1,4 @@
-package com.example.newsshorts.data.entity
+package com.example.newsshorts.data.remote.entityRespond
 
 
 val languageItems = listOf(

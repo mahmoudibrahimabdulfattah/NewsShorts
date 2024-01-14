@@ -1,10 +1,10 @@
 package com.example.newsshorts.di
 
-import com.example.newsshorts.data.AppConstants
-import com.example.newsshorts.data.api.ApiService
-import com.example.newsshorts.data.datasource.NewsDataSource
-import com.example.newsshorts.data.datasource.NewsDataSourceImpl
-import com.example.newsshorts.data.repository.NewsRepository
+import android.app.Application
+import androidx.room.Room
+import com.example.newsshorts.util.AppConstants
+import com.example.newsshorts.data.remote.NewsApi
+import com.example.newsshorts.data.local.NewsDatabase
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
@@ -21,7 +21,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class AppModule{
+object AppModule{
 
     @Singleton
     @Provides
@@ -48,20 +48,17 @@ class AppModule{
 
     @Singleton
     @Provides
-    fun provideApiService(retrofit: Retrofit): ApiService {
-        return retrofit.create(ApiService::class.java)
+    fun provideApiService(retrofit: Retrofit): NewsApi {
+        return retrofit.create(NewsApi::class.java)
     }
 
-    @Singleton
     @Provides
-    fun provideNewsDataSource(apiService: ApiService): NewsDataSource {
-        return NewsDataSourceImpl(apiService)
-
-    }
-
     @Singleton
-    @Provides
-    fun provideNewsRepository(dataSource: NewsDataSource): NewsRepository {
-        return NewsRepository(dataSource)
+    fun providesNewsDatabase(app: Application): NewsDatabase {
+        return Room.databaseBuilder(
+            app,
+            NewsDatabase::class.java,
+            "newsdb.db"
+        ).build()
     }
 }

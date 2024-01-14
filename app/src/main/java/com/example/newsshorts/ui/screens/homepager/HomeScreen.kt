@@ -44,8 +44,8 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.sp
-import com.example.newsshorts.data.AppConstants
-import com.example.newsshorts.data.entity.languageItems
+import com.example.newsshorts.util.AppConstants
+import com.example.newsshorts.data.remote.entityRespond.languageItems
 import com.example.utilities.CoreUtility.isInternetConnectes
 
 
@@ -72,6 +72,7 @@ fun HomeScreen(
     var index = 0
 
     if (isConnected){
+
         when (newsResult) {
             is ResourceState.Loading -> {
                 Loader()

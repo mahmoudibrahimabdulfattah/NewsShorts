@@ -25,7 +25,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.example.newsshorts.R
-import com.example.newsshorts.data.entity.Articles
+import com.example.newsshorts.data.remote.entityRespond.ArticlesDto
 import com.example.newsshorts.ui.theme.NewsInShortTheme
 import com.example.newsshorts.ui.theme.OnPrimaryColor
 import com.example.newsshorts.ui.theme.PrimaryColor
@@ -65,7 +65,7 @@ fun HadingTextComponent(value: String) {
 }
 
 @Composable
-fun NewsRowComponent(article: Articles?) {
+fun NewsRowComponent(article: ArticlesDto?) {
     Column(
         modifier = Modifier
             .fillMaxSize()

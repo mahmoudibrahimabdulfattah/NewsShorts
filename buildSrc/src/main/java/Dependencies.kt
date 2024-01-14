@@ -47,6 +47,11 @@ object Dependencies {
 
     //Splash Screen
     val splashScreen by lazy { "androidx.core:core-splashscreen:${Versions.splashScreen}" }
+
+    //Room
+    val roomKtx by lazy {"androidx.room:room-ktx:${Versions.room}"}
+    val roomComiler by lazy {"androidx.room:room-compiler:${Versions.room}"}
+    val roomPaging by lazy {"androidx.room:room-paging:${Versions.room}"}
 }
 
 object Modules{

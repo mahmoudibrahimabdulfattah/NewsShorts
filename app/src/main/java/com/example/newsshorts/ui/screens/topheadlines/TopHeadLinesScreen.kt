@@ -36,8 +36,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.example.newsshorts.data.AppConstants
-import com.example.newsshorts.data.entity.countryItems
+import com.example.newsshorts.util.AppConstants
+import com.example.newsshorts.data.remote.entityRespond.countryItems
 import com.example.newsshorts.ui.componentes.IsError
 import com.example.newsshorts.ui.componentes.Loader
 import com.example.newsshorts.ui.componentes.NewsRowComponent

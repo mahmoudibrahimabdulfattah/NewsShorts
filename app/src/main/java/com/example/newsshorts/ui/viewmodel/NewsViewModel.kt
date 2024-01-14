@@ -2,9 +2,8 @@ package com.example.newsshorts.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.newsshorts.data.AppConstants
-import com.example.newsshorts.data.entity.NewsResponse
-import com.example.newsshorts.data.repository.NewsRepository
+import com.example.newsshorts.util.AppConstants
+import com.example.newsshorts.data.remote.entityRespond.NewsResponse
 import com.example.utilities.ResourceState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
